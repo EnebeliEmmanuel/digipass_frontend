@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+  background: #1c1f21;
+  color: white;
+  font-family: "Montserrat" sans-serif;
+}
+
+.nav-bg {
+  background: linear-gradient(180deg, rgba(35, 45, 52, 0.8) 0%, #1c1f21 50%);
+  /* font-size: 18px; */
+}
+
+.connect {
+  border-radius: 16px;
+  background: radial-gradient(
+      110.23% 82.81% at 50% 17.19%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    ),
+    radial-gradient(
+      172.39% 156.26% at 105.11% -15.62%,
+      rgba(80, 66, 202, 0.5) 19.66%,
+      rgba(19, 229, 213, 0.03) 71.06%
+    ),
+    radial-gradient(
+      93.05% 104.93% at 20.17% -22.66%,
+      rgba(80, 67, 202, 0.5) 0%,
+      rgba(29, 82, 160, 0.09) 100%
+    ),
+    radial-gradient(
+      135.71% 87.74% at 33.81% 109.38%,
+      rgba(75, 63, 201, 0.5) 0%,
+      rgba(102, 129, 226, 0) 95.37%
+    ),
+    #4c40c7;
+  box-shadow: 0px 0px 4px 0px #fff inset;
+  padding: 8px 14px;
+}
+
+.fut {
+  color: #e1e8ec;
+  text-align: center;
+
+  /* H1 */
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 70px; /* 137.931% */
+  letter-spacing: 0.2px;
+}
+
+.fut span {
+  background: linear-gradient(40deg, #00f3b9 0.79%, #2187ff 79.29%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* H1 */
+  font-family: Montserrat;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 80px;
+  letter-spacing: 0.2px;
+}
+
+.btn-e {
+  border-radius: 50px;
+  border: 1px solid #fff;
+  background: linear-gradient(45deg, #ffbccc 2.77%, #3e2bb7 77.19%);
+  backdrop-filter: blur(10px);
+}
+
+.reflex {
+  border-radius: 50px;
+  position: absolute;
+  margin-top: 7px;
+  background: #3e2bb7;
+  height: 60px;
+  width: 200px;
+  backdrop-filter: blur(10px);
+}
+
+.btn-e2 {
+  border-radius: 50px;
+border: 1px solid #0EC4D7;
+background: linear-gradient(96deg, rgba(19, 150, 174, 0.70) 2.77%, rgba(96, 107, 255, 0.23) 99.19%);
+backdrop-filter: blur(10px);
+}
+
+.reflex2 {
+  border-radius: 50px;
+  position: absolute;
+  margin-top: 7px;
+  height: 60px;
+  width: 192px;
+  backdrop-filter: blur(10px);
+background: #1F4765;
+}
+
+/* .numb {
+  transform: translate(50%, 50%);
+} */
