@@ -36,20 +36,20 @@ const CreateEvent = () => {
     return (
         <div className="p-[20px] md:p-[40px] ">
             <div className="w-full border-[2px] border-[#0FC1D9] rounded-md md:rounded-[50px] flex flex-col justify-center items-center">   
-                <div className="relative w-full sm:w-[400px] flex justify-center items-center gap-[8px] py-[10px] md:py-[20px]">
+                <div className="relative w-full sm:w-[400px] flex justify-center items-center gap-[8px] px-[10px] py-[10px] md:py-[20px]">
                     <div className="w-1/2">
                         <h3 className="text-[12px] text-[#0FC1D9] leading-[16px] font-semibold">
                             Main Info
                         </h3>
-                        <div className="h-[7px] w-full rounded-[4px] border-[2px] border-[#0FC1D9] ">
-
+                        <div className={activeTab === 0 ? `h-[7px] w-full rounded-[4px] bg-[#0FC1D9] border-[2px] border-[#0FC1D9] ` : `h-[7px] w-full rounded-[4px] border-[2px] border-[#0FC1D9]`}>
+                        
                         </div>
                     </div>
                     <div className="w-1/2">
                         <h3 className="text-[12px] text-[#0FC1D9] leading-[16px] font-semibold">
                             Description
                         </h3>
-                        <div className="h-[7px] w-full rounded-[4px] border-[2px] border-[#0FC1D9] ">
+                        <div className={activeTab === formElements.length - 1 ? `h-[7px] w-full rounded-[4px] bg-[#0FC1D9] border-[2px] border-[#0FC1D9] ` : `h-[7px] w-full rounded-[4px] border-[2px] border-[#0FC1D9]`}>
 
                         </div>
                     </div>

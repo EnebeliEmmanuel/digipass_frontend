@@ -39,16 +39,10 @@ export const Nav = () => {
                     </div>
                 </div>
             </div>
-            <div className={toggle ? `absolute w-screen h-screen nav-bg flex flex-col justify-center items-center gap-[10px]` : `hidden scale-0`}>
-                <div className=''>
-                    <Link href='/events' className='py-2 px-3'>Events</Link>
-                </div>
-                <div>
-                    <Link href='/dashboard' className='py-2 px-3'>Dashboard</Link>
-                </div>
-                <div>
-                    <Link href='/create-event' className='py-2 px-3'>Create</Link>
-                </div>
+            <div className={toggle ? `absolute w-screen h-screen z-10 bg-black flex flex-col justify-center items-center gap-[10px]` : `hidden scale-0`}>
+                <Link onClick={handleToggle} href='/events' className='py-3 px-3'>Events</Link>
+                <Link onClick={handleToggle} href='/dashboard' className='py-3 px-3'>Dashboard</Link>
+                <Link onClick={handleToggle} href='/create-event' className='py-3 px-3'>Create</Link>
                 <div className="">
                     <ConnectBtn />
                 </div>
