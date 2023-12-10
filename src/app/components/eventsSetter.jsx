@@ -4,7 +4,7 @@ import { MdOutlineDateRange } from "react-icons/md";
 
 const Setter = () => {
   return (
-    <div className="flex flex-col gap-[30px] w-[380px] min-h-screen px-[20px] py-[20px] rounded-[16px] bg-[#171919] ">
+    <div className="flex flex-col gap-[30px] w-full md:w-[380px] min-h-full px-[20px] py-[20px] rounded-[16px] bg-[#171919] ">
       <div className="border-b border-[#49454F] w-full">
         <h3 className="text-[24px] font-semibold text-[#0FC1D9] leading-[29px] ">Filters</h3>
       </div>

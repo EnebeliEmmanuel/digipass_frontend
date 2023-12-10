@@ -28,7 +28,7 @@ body {
     rgb(var(--background-start-rgb)); */
   background: #1c1f21;
   color: white;
-  font-family: "Montserrat" sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .nav-bg {
@@ -68,7 +68,6 @@ body {
   text-align: center;
 
   /* H1 */
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 800;
   line-height: 70px; /* 137.931% */
@@ -82,11 +81,8 @@ body {
   -webkit-text-fill-color: transparent;
 
   /* H1 */
-  font-family: Montserrat;
-  font-size: 58px;
   font-style: normal;
   font-weight: 800;
-  line-height: 80px;
   letter-spacing: 0.2px;
 }
 

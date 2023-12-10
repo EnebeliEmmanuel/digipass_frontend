@@ -1,0 +1,891 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "router",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_defaultPurchaseAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "ALREADY_PURCHASED_TICKET",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "entity",
+				"type": "address"
+			}
+		],
+		"name": "ALREADY_REGISTERED_ENTITY",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "ERROR_UNREGISTERED_ENTITY_ONLY_PARTICIPANTS",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "EVENT_EXPIRED_NOT_AVAILABLE",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "EVENT_NOT_STARTED",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "endDate",
+				"type": "uint256"
+			}
+		],
+		"name": "EVENT_TICKET_EXPIRED",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "INSUFFICIENT_ASK_PRICE",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "INSUFFICIENT_BALANCE",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "router",
+				"type": "address"
+			}
+		],
+		"name": "InvalidRouter",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "accessRequired",
+				"type": "string"
+			}
+		],
+		"name": "ORGANIZER_ACCESS_REQUIRED",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "TICKETS_UNAVAILABLE",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "ticketNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "TICKET_ALREADY_VERIFIED",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			}
+		],
+		"name": "TICKET_SALES_ACTIVE",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "TicketPurchaseFailure",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"internalType": "string",
+				"name": "venue",
+				"type": "string"
+			}
+		],
+		"name": "CreateEvent",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "entity",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "enum Role",
+				"name": "role",
+				"type": "uint8"
+			}
+		],
+		"name": "OnboardSuccess",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "organization",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "valueAfterFees",
+				"type": "uint256"
+			}
+		],
+		"name": "RemittedOrganizer",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [],
+		"name": "TicketPurchaseSuccess",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "ticketNUmber",
+				"type": "uint256"
+			}
+		],
+		"name": "TicketPurchased",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "eventName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "ticketNumber",
+				"type": "uint256"
+			}
+		],
+		"name": "TicketVerified",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "EventList",
+		"outputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "venue",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "imageUrl",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "eventURL",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "availableTickets",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endDate",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "regular",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "vip",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "vvip",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct Prices",
+								"name": "price",
+								"type": "tuple"
+							},
+							{
+								"internalType": "enum Categories",
+								"name": "category",
+								"type": "uint8"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "address",
+										"name": "_address",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes",
+										"name": "proof",
+										"type": "bytes"
+									},
+									{
+										"internalType": "bool",
+										"name": "isVerified",
+										"type": "bool"
+									},
+									{
+										"internalType": "enum Role",
+										"name": "role",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct Entity",
+								"name": "organization",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct EventParams",
+						"name": "eventParams",
+						"type": "tuple"
+					},
+					{
+						"internalType": "contract SoulBoundNFT",
+						"name": "nft",
+						"type": "address"
+					}
+				],
+				"internalType": "struct Event[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "bytes32",
+						"name": "messageId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "sourceChainSelector",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes",
+						"name": "sender",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "token",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Client.EVMTokenAmount[]",
+						"name": "destTokenAmounts",
+						"type": "tuple[]"
+					}
+				],
+				"internalType": "struct Client.Any2EVMMessage",
+				"name": "message",
+				"type": "tuple"
+			}
+		],
+		"name": "ccipReceive",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_entity",
+				"type": "address"
+			}
+		],
+		"name": "checkRegistration",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "proof",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bool",
+						"name": "isVerified",
+						"type": "bool"
+					},
+					{
+						"internalType": "enum Role",
+						"name": "role",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct Entity",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "venue",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "imageUrl",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "eventURL",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "availableTickets",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endDate",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "regular",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "vip",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "vvip",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Prices",
+						"name": "price",
+						"type": "tuple"
+					},
+					{
+						"internalType": "enum Categories",
+						"name": "category",
+						"type": "uint8"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "proof",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bool",
+								"name": "isVerified",
+								"type": "bool"
+							},
+							{
+								"internalType": "enum Role",
+								"name": "role",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct Entity",
+						"name": "organization",
+						"type": "tuple"
+					}
+				],
+				"internalType": "struct EventParams",
+				"name": "_eventParams",
+				"type": "tuple"
+			},
+			{
+				"internalType": "string",
+				"name": "organizationSymbol",
+				"type": "string"
+			}
+		],
+		"name": "createEvent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getRouter",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_admin",
+				"type": "address"
+			}
+		],
+		"name": "onboardAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "proof",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bool",
+						"name": "isVerified",
+						"type": "bool"
+					},
+					{
+						"internalType": "enum Role",
+						"name": "role",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct Entity",
+				"name": "entity",
+				"type": "tuple"
+			}
+		],
+		"name": "onboardEntity",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "qrCode",
+				"type": "string"
+			},
+			{
+				"internalType": "enum TicketType",
+				"name": "ticketType",
+				"type": "uint8"
+			}
+		],
+		"name": "purchaseTicket",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "qrCode",
+				"type": "string"
+			},
+			{
+				"internalType": "enum TicketType",
+				"name": "ticketType",
+				"type": "uint8"
+			}
+		],
+		"name": "purchaseTicketCrossChain",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "eventID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "valueAfterFees",
+				"type": "uint256"
+			}
+		],
+		"name": "remitOrganizers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "eventID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ticketNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isVerified",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "ticketQrCode",
+						"type": "string"
+					},
+					{
+						"internalType": "enum TicketType",
+						"name": "ticketType",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct Ticket",
+				"name": "ticket",
+				"type": "tuple"
+			}
+		],
+		"name": "verifyTickets",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	}
+]

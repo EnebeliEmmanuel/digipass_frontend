@@ -1,0 +1,27 @@
+{
+    "@context": [
+        {
+            "@protected": true,
+            "@version": 1.1,
+            "id": "@id",
+            "type": "@type",
+            "Ownership": {
+                "@context": {
+                    "@propagate": true,
+                    "@protected": true,
+                    "polygon-vocab": "urn:uuid:fd83c805-d406-4e0e-b10d-74fde4179aa2#",
+                    "xsd": "http://www.w3.org/2001/XMLSchema#",
+                    "DigiPass": {
+                        "@id": "polygon-vocab:DigiPass",
+                        "@type": "xsd:string"
+                    },
+                    "ticket_address": {
+                        "@id": "polygon-vocab:ticket_address",
+                        "@type": "xsd:string"
+                    }
+                },
+                "@id": "urn:uuid:08684bb3-93f7-4305-889c-537593d3fe6e"
+            }
+        }
+    ]
+}

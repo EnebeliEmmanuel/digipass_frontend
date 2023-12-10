@@ -11,7 +11,7 @@ const Event = () => {
     setFocus(!focus)
   }
   return (
-    <div className="px-[50px]">
+    <div className="px-[20px] md:px-[50px]">
       <section className='flex flex-row justify-start items-center'>
         <div className="rounded-md ">
           <Image width={500} height={500} src="images/event_page_1.svg" />

@@ -4,7 +4,7 @@ import * as React from 'react';
 import {
   RainbowKitProvider,
   getDefaultWallets,
-  connectorsForWallets,
+  lightTheme
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
@@ -65,65 +65,70 @@ const wagmiConfig = createConfig({
 });
 
 export const Providers = ({ children }) => {
-// const myCustomTheme = Theme({
-//   blurs: {
-//     modalOverlay: '...',
-//   },
-//   colors: {
-//     accentColor: '...',
-//     accentColorForeground: '...',
-//     actionButtonBorder: '...',
-//     actionButtonBorderMobile: '...',
-//     actionButtonSecondaryBackground: '...',
-//     closeButton: '...',
-//     closeButtonBackground: '...',
-//     connectButtonBackground: '',
-//     connectButtonBackgroundError: '...',
-//     connectButtonInnerBackground: '...',
-//     connectButtonText: '...',
-//     connectButtonTextError: '...',
-//     connectionIndicator: '...',
-//     downloadBottomCardBackground: '...',
-//     downloadTopCardBackground: '...',
-//     error: '...',
-//     generalBorder: '...',
-//     generalBorderDim: '...',
-//     menuItemBackground: '...',
-//     modalBackdrop: '...',
-//     modalBackground: '...',
-//     modalBorder: '...',
-//     modalText: '...',
-//     modalTextDim: '...',
-//     modalTextSecondary: '...',
-//     profileAction: '...',
-//     profileActionHover: '...',
-//     profileForeground: '...',
-//     selectedOptionBorder: '...',
-//     standby: '...',
-//   },
-//   fonts: {
-//     body: '...',
-//   },
-//   radii: {
-//     actionButton: '...',
-//     connectButton: '...',
-//     menuButton: '...',
-//     modal: '...',
-//     modalMobile: '...',
-//   },
-//   shadows: {
-//     connectButton: '...',
-//     dialog: '...',
-//     profileDetailsAction: '...',
-//     selectedOption: '...',
-//     selectedWallet: '...',
-//     walletLogo: '...',
-//   },
-//   });
+const myCustomTheme = {
+  blurs: {
+    modalOverlay: '...',
+  },
+  colors: {
+    accentColor: '#4C40C7',
+    accentColorForeground: '...',
+    actionButtonBorder: '...',
+    actionButtonBorderMobile: '...',
+    actionButtonSecondaryBackground: '...',
+    closeButton: '...',
+    closeButtonBackground: '...',
+    connectButtonBackground: '#4C40C7',
+    connectButtonBackgroundError: '...',
+    connectButtonInnerBackground: '...',
+    connectButtonText: '...',
+    connectButtonTextError: '...',
+    connectionIndicator: '...',
+    downloadBottomCardBackground: '...',
+    downloadTopCardBackground: '...',
+    error: '...',
+    generalBorder: '#fff',
+    generalBorderDim: '...',
+    menuItemBackground: '...',
+    modalBackdrop: '...',
+    modalBackground: '...',
+    modalBorder: '...',
+    modalText: '...',
+    modalTextDim: '...',
+    modalTextSecondary: '...',
+    profileAction: '...',
+    profileActionHover: '...',
+    profileForeground: '...',
+    selectedOptionBorder: '...',
+    standby: '...',
+  },
+  fonts: {
+    body: '...',
+  },
+  radii: {
+    actionButton: '#fff',
+    connectButton: '#fff',
+    menuButton: '...',
+    modal: '...',
+    modalMobile: '...',
+  },
+  shadows: {
+    connectButton: '...',
+    dialog: '...',
+    profileDetailsAction: '...',
+    selectedOption: '...',
+    selectedWallet: '...',
+    walletLogo: '...',
+  },
+  };
   
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} appInfo={appInfo}>
+      <RainbowKitProvider theme={lightTheme({
+        accentColor: '#4C40C7',
+        accentColorForeground: 'white',
+        borderRadius: 'large',
+        fontStack: 'system',
+      })} chains={chains} appInfo={appInfo}>
         {children}
       </RainbowKitProvider>
     </WagmiConfig>

@@ -20,13 +20,13 @@ const EventList = () => {
         data.map((item) => {
           return (
             <Link href={item.slug}>
-              <div className="flex flex-row justify-start items-center px-[20px] py-[20px] w-[800px] rounded-[32px] bg-[#171919] mb-[20px]">       
+              <div className="flex flex-col md:flex-row justify-start items-center px-[5px] md:px-[20px] py-[20px] w-full md:w-[800px] rounded-lg md:rounded-[32px] bg-[#171919] mb-[20px]">       
                 <div className="rounded-[16px] bg-[#171919]">
                   <Image width={200} height={216} src={item.image} />
                 </div>
                 <div className="flex flex-col px-[5px] ml-[30px] max-w-[600px] gap-[10px]">
                   <div name="name" className="">
-                    <h3 className="text-[24px] text-[#0FC1D9] font-bold">{item.name}</h3>
+                    <h3 className="text-[20px] md:text-[24px] text-[#0FC1D9] font-bold">{item.name}</h3>
                   </div>
                   <div name="price" className="text-[#0FC1D9] text-[20px] ">
                     ${item.price}

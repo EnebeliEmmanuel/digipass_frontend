@@ -9,7 +9,7 @@ import EventsList from "../eventsList"
 const Events = () => {
 
   return (
-    <div className="flex gap-[30px] justify-start px-[50px] py-[20px]">
+    <div className="flex flex-col-reverse md:flex-row gap-[30px] justify-start px-[20px] md:px-[40px] py-[20px]">
       <Setter />
       <EventsList />
     </div>

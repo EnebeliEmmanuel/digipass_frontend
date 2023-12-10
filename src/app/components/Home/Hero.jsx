@@ -27,7 +27,7 @@ const Hero = () => {
             height={150}
         />
       <p className="text-center text-[#A2B2EE] font-semibold text-2xl">ETHERCKET</p>
-      <div className="fut text-[3rem] md:text-[4rem] w-[98%] max-w-[800px] mx-auto my-6"> The Future of Event Ticketing <span> is Here!</span></div>
+      <div className="fut text-[2rem] md:text-[4rem] w-[98%] max-w-[800px] mx-auto my-6"> The Future of Event Ticketing <br /> <span className="text-[2rem] md:text-[4rem]"> is Here!</span></div>
       <p className="text-[#CED8DD] w-[98%] max-w-[550px] mx-auto my-7 leading-10 text-[18px]  text-center font-semibold">A decentralized events ticketing system that puts power back in the hands of fans and event organizers.</p>
       <div className="flex flex-col md:flex-row gap-8 items-center w-fit mx-auto mt-10">
         <div className="relative">
