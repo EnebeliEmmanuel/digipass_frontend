@@ -4,7 +4,7 @@ import { Nav } from './components/Nav';
 import Footer from "./components/Footer"
 import '@rainbow-me/rainbowkit/styles.css';
 import { Providers } from "./providers";
-import { Chakra } from './Provider/chakra';
+import { NextUIProviders } from './Provider/NextUIProviders';
 
 export const metadata = {
   title: 'Create Next App',
@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Providers>
-          <Chakra>
+          <NextUIProviders>
             <Nav />
               {children}
             <Footer />
-          </Chakra>
+          </NextUIProviders>
         </Providers> 
       </body>
     </html>

@@ -4,7 +4,8 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { FaBell } from "react-icons/fa";
 import { FaCircleCheck } from "react-icons/fa6";
-import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+import Chart from "./Chart";
+import Chart2 from "./Chart2";
 
 import {
   Chart as ChartJS,
@@ -12,6 +13,7 @@ import {
   // Tooltip,
   // Legend
 } from "chart.js";
+import { MdElectricCar } from "react-icons/md";
 
 ChartJS.register(
   ArcElement
@@ -95,9 +97,9 @@ const Details = () => {
     },
   };
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col md:flex-row my-10 gap-4">
       <div className=" basis-[60%]">
-        <div className=" flex gap-5 basis-[50%] ">
+        <div className=" flex gap-5  flex-col sm:flex-row  basis-[50%] ">
           <div className="dash-card py-8 px-7 ">
             <p className="font-bold text-[1.56em] ">Welcome back!</p>
             <p className="text-[.8rem] ">Nice to see you, siva Tech</p>
@@ -111,18 +113,84 @@ const Details = () => {
             >
 
             </Doughnut> */}
-            <div className="relative flex  w-[120px] h-[120px]">
-              <CircularProgress  value={70} color="#171919" thickness='7px'  size='120px' >
-                <CircularProgressLabel>40%</CircularProgressLabel>
-              </CircularProgress>
-              {/* <Doughnut data={data} options={options}></Doughnut> */}
-              {/* <div className="absolute font-bold w-[120px] h-[130px] flex justify-center items-center">
-                <p className="">30%</p>
-              </div> */}
+            <Chart />
+          </div>
+        </div>
+        <div className="dash-card py-8 px-5  mt-5">
+          <p className="font-bold text-[1rem] ">Analysis</p>
+          <div className="flex gap-3 flex-col sm:flex-row">
+            <div className="">
+              <Chart2 />
+            </div>
+            {/* <div className="flex gap-3 ">
+              <div className="flex order p-3 justify-between h-fit w-[50%]">
+                <div>
+                  <p className="text-[.8rem] text-[#A0AEC0]">Open event</p>
+                  <p className="text-[1.2rem] font-bold">1</p>
+                </div>
+                <div>
+                  <MdElectricCar
+                    size={45}
+                    className="bg-[#0FC1D9] p-2 rounded-xl "
+                  />
+                </div>
+              </div>
+            </div> */}
+            <div className="flex justify-between flex-wrap mt-auto gap-y-3 w-full">
+              <div className="flex h-fit justify-between w-[48%] order p-3 ">
+                <div>
+                  <p className="text-[.7rem] text-[#A0AEC0]">Open event</p>
+                  <p className="text-[1.2rem] font-bold">1</p>
+                </div>
+                <div>
+                  <MdElectricCar
+                    size={35}
+                    className="bg-[#0FC1D9] p-2 rounded-xl "
+                  />
+                </div>
+              </div>
+
+              <div className="flex h-fit justify-between w-[48%] order p-3 ">
+                <div>
+                  <p className="text-[.7rem] text-[#A0AEC0]">Open event</p>
+                  <p className="text-[1.2rem] font-bold">1</p>
+                </div>
+                <div>
+                  <MdElectricCar
+                    size={35}
+                    className="bg-[#0FC1D9] p-2 rounded-xl "
+                  />
+                </div>
+              </div>
+              <div className="flex h-fit justify-between w-[48%] order p-3 ">
+                <div>
+                  <p className="text-[.7rem] text-[#A0AEC0]">Open event</p>
+                  <p className="text-[1.2rem] font-bold">1</p>
+                </div>
+                <div>
+                  <MdElectricCar
+                    size={35}
+                    className="bg-[#0FC1D9] p-2 rounded-xl "
+                  />
+                </div>
+              </div>
+              <div className="flex h-fit justify-between w-[48%] order p-3 ">
+                <div>
+                  <p className="text-[.7rem] text-[#A0AEC0]">Open event</p>
+                  <p className="text-[1.2rem] font-bold">1</p>
+                </div>
+                <div>
+                  <MdElectricCar
+                    size={35}
+                    className="bg-[#0FC1D9] p-2 rounded-xl "
+                  />
+                </div>
+              </div>
+
+             
             </div>
           </div>
         </div>
-        <div></div>
       </div>
       <div className="order p-8 text-[.95rem] gap-y-3 flex flex-col basis-[40%]">
         <p className="font-semibold text-[1.2rem]">Order overview</p>
