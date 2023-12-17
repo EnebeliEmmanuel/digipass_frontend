@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/components/Home/Works.jsx", "src/app/components/Home/Organisation.jsx", "src/app/components/Home/Hero.jsx", "src/app/components/Home/Features.jsx", "src/app/components/Home/Explore.jsx"  ],
+, "src/app/components/Home/Works.jsx", "src/app/components/Home/Organisation.jsx", "src/app/components/Home/Hero.jsx", "src/app/components/Home/Features.jsx", "src/app/components/Home/Explore.jsx", "src/app/Provider/chakra.jsx"  ],
   "exclude": [
     "node_modules"
   ]
