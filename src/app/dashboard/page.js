@@ -1,35 +1,44 @@
-import Image from "next/image";
+
 import React from "react";
+import Image from "next/image";
 import { IoWallet } from "react-icons/io5";
-import Details from '../components/Dashboard/Details'
+import Details from "../components/Dashboard/Details";
+import Levent from "../components/Dashboard/Levent";
 
 
 const card = [
   {
     title: "Today's Money",
+    id: 1,
     amount: "$2,130",
     percent: "+5%",
     icon: <IoWallet size={45} className="bg-[#0FC1D9] p-2 rounded-xl " />,
   },
   {
     title: "Ticket’s sold today",
+    id: 2,
     amount: "38",
     percent: "+5%",
     icon: <IoWallet size={45} className="bg-[#0FC1D9] p-2 rounded-xl " />,
   },
   {
     title: "Total sales",
+    id: 3,
     amount: "8,300",
     percent: "+5%",
     icon: <IoWallet size={45} className="bg-[#0FC1D9] p-2 rounded-xl " />,
   },
 ];
-const DashboardPage = () => {
+
+export default function Page () {
   return (
     <div className="w-[95%] px-[10px] mx-auto max-w-[1200px]">
       <div className="flex gap-y-5 flex-wrap  justify-between my-12">
         {card?.map((item) => (
-          <div className="dash-card flex justify-between py-5 px-5 items-center basis-full sm:basis-[48%] md:basis-[30%]">
+          <div
+            key={item.id}
+            className="dash-card flex justify-between py-5 px-5 items-center basis-full sm:basis-[48%] md:basis-[30%]"
+          >
             <div className="">
               <p className="text-[#A0AEC0] font-semibold text-[.85rem]">
                 {item.title}
@@ -83,10 +92,10 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      
       <Details />
+      {/* <List /> */}
+      <Levent />
+      
     </div>
   );
 };
-
-export default DashboardPage;
